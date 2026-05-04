@@ -1,0 +1,41 @@
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #000000;
+  border-bottom: 1px solid #222;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header__logo {
+  font-size: 24px;
+  font-weight: 800;
+  color: #7b61ff;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.main-content {
+  flex: 1;
+  padding: 30px 40px;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.footer {
+  padding: 30px;
+  text-align: center;
+  color: #80858b;
+  font-size: 14px;
+  border-top: 1px solid #1a1a1a;
+}
