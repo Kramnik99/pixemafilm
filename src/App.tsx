@@ -10,9 +10,9 @@ function App() {
           <span>Search Placeholder</span>
         </nav>
       </header>
-      
+
       <main className="main-content">
-        <Outlet /> 
+        <Outlet />
       </main>
 
       <footer className="footer">

@@ -1,0 +1,48 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 40px 0;
+  user-select: none;
+}
+
+/* СТИЛИ ДЛЯ КНОПОК, СТРЕЛОК, ЦИФРЫ */
+.pagination__button,
+.pagination__page-btn {
+  padding: 10px 15px;
+  background-color: #323537;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+  min-width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ХОВЕРЫ ДЛЯ КНОПОК */
+.pagination__button:hover:not(:disabled),
+.pagination__page-btn:hover:not(.active) {
+  background-color: #7b61ff;
+}
+
+/* АКТИВНАЯ СТРАНИЦА */
+.pagination__page-btn.active {
+  background-color: #7b61ff;
+  cursor: default;
+}
+
+/* ТОЧКИ В ПАГИНАЦИИ */
+.pagination__dots {
+  color: #80858b;
+  font-weight: bold;
+}
+
+.pagination__button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
