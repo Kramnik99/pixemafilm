@@ -1,14 +1,16 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
+import { Search } from './components/Search';
 import './styles/App.css';
 
 function App() {
   return (
     <div className="app-wrapper">
       <header className="header">
-        <div className="header__logo">PIXEMA</div>
-        <nav className="header__nav">
-          <span>Search Placeholder</span>
-        </nav>
+        <Link to="/" className="header__logo">PIXEMA</Link>
+
+        <div className="header__actions">
+          <Search />
+        </div>
       </header>
 
       <main className="main-content">

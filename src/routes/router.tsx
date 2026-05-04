@@ -1,22 +1,29 @@
 import { createBrowserRouter } from 'react-router-dom';
+import type { RouteObject } from 'react-router-dom';
 import App from '../App';
 import { HomePage } from '../pages/HomePage';
 import { MoviePage } from '../pages/MoviePage';
+import { SearchPage } from '../pages/SearchPage';
 import { ROUTES } from './routes';
 
-export const router = createBrowserRouter([
+const routes: RouteObject[] = [
   {
-    path: ROUTES.HOME,
-    element: <App />,
+    Component: App,
     children: [
       {
-        index: true,
-        element: <HomePage />,
+        path: ROUTES.HOME,
+        Component: HomePage,
       },
       {
         path: ROUTES.MOVIE,
-        element: <MoviePage />,
+        Component: MoviePage,
+      },
+      {
+        path: ROUTES.SEARCH,
+        Component: SearchPage,
       },
     ],
   },
-]);
+];
+
+export const router = createBrowserRouter(routes);
