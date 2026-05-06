@@ -30,6 +30,7 @@ export const SearchPage: React.FC = () => {
                         {data?.items.map((movie: any) => (
                             <MovieCard
                                 key={movie.kinopoiskId || movie.filmId}
+                                id={movie.kinopoiskId}
                                 title={movie.nameRu || movie.nameEn}
                                 poster={movie.posterUrlPreview}
                                 year={movie.year}

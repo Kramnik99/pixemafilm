@@ -21,6 +21,13 @@ export interface IMovie {
     posterUrl: string;
     posterUrlPreview: string;
 }
+export interface IMovieFull extends IMovie {
+  description: string | null;
+  shortDescription: string | null;
+  ratingAgeLimits: string | null;
+  filmLength: number | null;
+  slogan: string | null;
+}
 
 export interface IMovieResponse {
     total: number;

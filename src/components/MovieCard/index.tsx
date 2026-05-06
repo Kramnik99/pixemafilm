@@ -1,23 +1,30 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './MovieCard.css';
 
 interface MovieCardProps {
+    id: number | string;
     title: string;
     poster: string;
     year: number | string;
     genre: string;
-    onClick?: () => void;
 }
 
 export const MovieCard: React.FC<MovieCardProps> = ({
+    id,
     title,
     poster,
     year,
-    genre,
-    onClick
+    genre
 }) => {
+    const navigate = useNavigate();
+
+    const handleCardClick = () => {
+        navigate(`/movie/${id}`);
+    };
+
     return (
-        <div className="movie-card" onClick={onClick}>
+        <div className="movie-card" onClick={handleCardClick}>
             <div className="movie-card__poster-wrapper">
                 <img
                     className="movie-card__poster"

@@ -20,7 +20,10 @@ export const kinopoiskApi = createApi({
       query: ({ keyword, page = 1 }) =>
         `/films?keyword=${keyword}&page=${page}`,
     }),
+    getMovieDetails: builder.query<any, string>({
+      query: (id) => `/films/${id}`,
+    }),
   }),
 });
 
-export const { useGetMoviesQuery, useGetMoviesBySearchQuery } = kinopoiskApi;
+export const { useGetMoviesQuery, useGetMoviesBySearchQuery, useGetMovieDetailsQuery } = kinopoiskApi;
