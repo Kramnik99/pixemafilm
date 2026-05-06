@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { useGetMoviesBySearchQuery } from '../../api/kinopoiskApi';
+import { useGetMoviesByFiltersQuery } from '../../api/kinopoiskApi';
 import { MovieCard } from '../../components/MovieCard';
 import { Pagination } from '../../components/Pagination';
 import '../HomePage/HomePage.css';
@@ -10,7 +10,7 @@ export const SearchPage: React.FC = () => {
     const query = searchParams.get('query') || '';
     const [page, setPage] = useState(1);
 
-    const { data, isLoading, isError } = useGetMoviesBySearchQuery({
+    const { data, isLoading, isError } = useGetMoviesByFiltersQuery({
         keyword: query,
         page
     });

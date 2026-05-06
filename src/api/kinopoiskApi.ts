@@ -16,9 +16,21 @@ export const kinopoiskApi = createApi({
     getMovies: builder.query<IMovieResponse, number>({
       query: (page = 1) => `/films/collections?type=TOP_POPULAR_ALL&page=${page}`,
     }),
-    getMoviesBySearch: builder.query<IMovieResponse, { keyword: string; page: number }>({
-      query: ({ keyword, page = 1 }) =>
-        `/films?keyword=${keyword}&page=${page}`,
+    getMoviesByFilters: builder.query<IMovieResponse, {
+      keyword?: string;
+      yearFrom?: number;
+      genres?: number;
+      type?: string;
+      page: number
+    }>({
+      query: ({ keyword, yearFrom, genres, type, page = 1 }) => {
+        let url = `/films?page=${page}`;
+        if (keyword) url += `&keyword=${encodeURIComponent(keyword)}`;
+        if (yearFrom) url += `&yearFrom=${yearFrom}`;
+        if (genres) url += `&genres=${genres}`;
+        if (type && type !== 'ALL') url += `&type=${type}`;
+        return url;
+      },
     }),
     getMovieDetails: builder.query<any, string>({
       query: (id) => `/films/${id}`,
@@ -26,4 +38,4 @@ export const kinopoiskApi = createApi({
   }),
 });
 
-export const { useGetMoviesQuery, useGetMoviesBySearchQuery, useGetMovieDetailsQuery } = kinopoiskApi;
+export const { useGetMoviesQuery, useGetMoviesByFiltersQuery, useGetMovieDetailsQuery } = kinopoiskApi;
