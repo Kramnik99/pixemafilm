@@ -1,24 +1,49 @@
 import React, { useState } from 'react';
-import { useGetMoviesQuery } from '../../api/kinopoiskApi';
+import { useGetMoviesByFiltersQuery } from '../../api/kinopoiskApi';
 import { MovieCard } from '../../components/MovieCard';
 import { Pagination } from '../../components/Pagination';
+import { Filters } from '../../components/Filters';
 import './HomePage.css';
+
+const initialFilters = {
+  type: 'ALL',
+  yearFrom: '',
+  genres: '',
+};
 
 export const HomePage: React.FC = () => {
   const [page, setPage] = useState(1);
-  const { data, isLoading, isError, isFetching } = useGetMoviesQuery(page);
+  const [filters, setFilters] = useState(initialFilters);
+
+  const { data, isLoading, isError, isFetching } = useGetMoviesByFiltersQuery({
+    page,
+    type: filters.type,
+    yearFrom: filters.yearFrom ? Number(filters.yearFrom) : undefined,
+    genres: filters.genres ? Number(filters.genres) : undefined,
+  });
+
+  const handleFilterChange = (newFilters: any) => {
+    setFilters(newFilters);
+    setPage(1);
+  };
+
+  const handleReset = () => {
+    setFilters(initialFilters);
+    setPage(1);
+  };
 
   if (isLoading) return <div className="status">Загрузка...</div>;
-  if (isError) return <div className="status">Ошибка загрузки данных</div>;
-
-  const handlePageChange = (newPage: number) => {
-    setPage(newPage);
-    window.scrollTo(0, 0);
-  };
+  if (isError) return <div className="status">Произошла ошибка при загрузке данных.</div>;
 
   return (
     <div className="home-page">
-      <h1 className="home-page__title">Популярные</h1>
+      <h1 className="home-page__title">Каталог фильмов</h1>
+
+      <Filters
+        filters={filters}
+        onFilterChange={handleFilterChange}
+        onReset={handleReset}
+      />
 
       {isFetching && <div className="status">Обновление...</div>}
 
@@ -37,7 +62,7 @@ export const HomePage: React.FC = () => {
 
       <Pagination
         currentPage={page}
-        onPageChange={handlePageChange}
+        onPageChange={setPage}
         totalPages={data?.totalPages || 1}
       />
     </div>
