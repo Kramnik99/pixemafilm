@@ -6,7 +6,6 @@ import './HomePage.css';
 
 export const HomePage: React.FC = () => {
   const [page, setPage] = useState(1);
-
   const { data, isLoading, isError, isFetching } = useGetMoviesQuery(page);
 
   if (isLoading) return <div className="status">Загрузка...</div>;
@@ -27,11 +26,11 @@ export const HomePage: React.FC = () => {
         {data?.items?.map((movie: any) => (
           <MovieCard
             key={movie.kinopoiskId}
+            id={movie.kinopoiskId}
             title={movie.nameRu || movie.nameEn}
             poster={movie.posterUrlPreview}
             year={movie.year}
             genre={movie.genres[0]?.genre}
-            onClick={() => console.log('Movie ID:', movie.kinopoiskId)}
           />
         ))}
       </div>
