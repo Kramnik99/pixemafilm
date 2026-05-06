@@ -6,7 +6,6 @@ import './MoviePage.css';
 export const MoviePage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-
   const { data: movie, isLoading, isError } = useGetMovieDetailsQuery(id || '');
 
   if (isLoading) return <div className="status">Загрузка деталей фильма...</div>;
