@@ -74,3 +74,24 @@
   line-height: 1.7;
   color: #afb2b6;
 }
+
+.favorite-btn {
+  background: #323537;
+  border: 1px solid #7b61ff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: 0.3s;
+  font-weight: 600;
+}
+
+.favorite-btn.active {
+  background: #7b61ff;
+}
+
+.favorite-btn:hover {
+  transform: scale(1.05);
+  background: #7b61ff;
+}

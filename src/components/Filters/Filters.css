@@ -20,7 +20,8 @@
   font-size: 14px;
 }
 
-.filter-select, .filter-input {
+.filter-select,
+.filter-input {
   background-color: #323537;
   color: white;
   border: none;

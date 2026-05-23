@@ -4,23 +4,27 @@ import App from '../App';
 import { HomePage } from '../pages/HomePage';
 import { MoviePage } from '../pages/MoviePage';
 import { SearchPage } from '../pages/SearchPage';
-import { ROUTES } from './routes';
+import { FavoritesPage } from '../pages/FavoritesPage';
 
 const routes: RouteObject[] = [
   {
     Component: App,
     children: [
       {
-        path: ROUTES.HOME,
+        path: '/',
         Component: HomePage,
       },
       {
-        path: ROUTES.MOVIE,
+        path: '/movie/:id',
         Component: MoviePage,
       },
       {
-        path: ROUTES.SEARCH,
+        path: '/search',
         Component: SearchPage,
+      },
+      {
+        path: '/favorites',
+        Component: FavoritesPage,
       },
     ],
   },
