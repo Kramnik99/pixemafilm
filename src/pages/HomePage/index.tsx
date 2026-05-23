@@ -3,9 +3,10 @@ import { useGetMoviesByFiltersQuery } from '../../api/kinopoiskApi';
 import { MovieCard } from '../../components/MovieCard';
 import { Pagination } from '../../components/Pagination';
 import { Filters } from '../../components/Filters';
+import type { IFilters } from '../../types/types';
 import './HomePage.css';
 
-const initialFilters = {
+const initialFilters: IFilters = {
   type: 'ALL',
   yearFrom: '',
   genres: '',
@@ -22,10 +23,10 @@ export const HomePage: React.FC = () => {
     genres: filters.genres ? Number(filters.genres) : undefined,
   });
 
-  const handleFilterChange = (newFilters: any) => {
-    setFilters(newFilters);
-    setPage(1);
-  };
+  const handleFilterChange = (newFilters: IFilters) => {
+  setFilters(newFilters);
+  setPage(1);
+};
 
   const handleReset = () => {
     setFilters(initialFilters);
