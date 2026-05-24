@@ -12,7 +12,7 @@ body {
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   /* background-color: #000000; */
-  background: linear-gradient(150deg,
+  background: linear-gradient(135deg,
       #212325 20%,
       #7b61ff 100%);
   background-repeat: no-repeat;

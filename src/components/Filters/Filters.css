@@ -3,6 +3,9 @@
   flex-wrap: wrap;
   gap: 15px;
   background-color: #212325;
+   background: linear-gradient(135deg,
+      #212325 20%,
+      #7b61ff 100%);
   padding: 20px;
   border-radius: 12px;
   margin-bottom: 30px;
@@ -16,7 +19,7 @@
 }
 
 .filter-group label {
-  color: #80858b;
+  color: #c8d0d9;
   font-size: 14px;
 }
 
