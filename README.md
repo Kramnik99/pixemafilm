@@ -1,73 +1,58 @@
-# React + TypeScript + Vite
+PIXEMA Film
+PIXEMA — это современное веб-приложение для поиска и просмотра информации о фильмах. Проект позволяет пользователям просматривать список фильмов, изучать детали конкретных картин и управлять списком «Избранного».
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 Основной функционал
+· Каталог фильмов: Просмотр списка популярных фильмов с возможностью поиска.
 
-Currently, two official plugins are available:
+· Детальная информация: Страница фильма с описанием, рейтингами и данными.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+· Избранное: Добавление и удаление фильмов из списка избранного (состояние сохраняется).
 
-## React Compiler
+· Авторизация: Система входа в систему для доступа к персональным функциям.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+· Адаптивный UI: Современный дизайн, оптимизированный под разные устройства.
 
-## Expanding the ESLint configuration
+🛠 Технологический стек
+Проект написан с использованием современных стандартов React и инструментов экосистемы Redux:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+· React (Functional Components, Hooks)
 
+· Redux Toolkit (RTK) — для управления состоянием приложения.
+
+· RTK Query — для эффективного взаимодействия с API (кэширование, запросы).
+
+· React Router — для навигации.
+
+· TypeScript — для типизации и надежности кода.
+
+· CSS / SCSS — для стилизации интерфейса.
+
+⚙️ Как запустить проект локально
+Клонируй репозиторий:
 ```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+git clone https://github.com/Kramnik99/pixemafilm.git
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
+Перейди в папку проекта:
 ```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+cd pixemafilm
 ```
+
+Установи зависимости:
+```js
+npm install
+```
+
+Запусти проект:
+```js
+npm start
+```
+
+Приложение откроется по адресу http://localhost:3000
+
+💡 Особенности реализации
+· В проекте используется продвинутая архитектура: разделение логики на API-слой, хранилище (store) и UI-компоненты.
+
+· Использование Redux Toolkit позволило значительно сократить количество шаблонного кода и сделать состояние приложения предсказуемым.
+
+· Реализована обработка ошибок и состояний загрузки, что обеспечивает качественный пользовательский опыт (UX).
