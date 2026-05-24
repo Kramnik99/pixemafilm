@@ -5,6 +5,9 @@ import { HomePage } from '../pages/HomePage';
 import { MoviePage } from '../pages/MoviePage';
 import { SearchPage } from '../pages/SearchPage';
 import { FavoritesPage } from '../pages/FavoritesPage';
+import { SignIn } from '../pages/SignIn';
+import { SignUp } from '../pages/SignUp';
+import { Activation } from '../pages/Activation';
 
 const routes: RouteObject[] = [
   {
@@ -25,6 +28,18 @@ const routes: RouteObject[] = [
       {
         path: '/favorites',
         Component: FavoritesPage,
+      },
+      {
+        path: '/login',
+        Component: SignIn,
+      },
+      {
+        path: '/register',
+        Component: SignUp,
+      },
+      {
+        path: '/activate',
+        Component: Activation,
       },
     ],
   },

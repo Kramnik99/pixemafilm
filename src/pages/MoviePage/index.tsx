@@ -1,18 +1,27 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux'; // Добавляем useSelector
 import { useGetMovieDetailsQuery } from '../../api/kinopoiskApi';
 import { useFavorites } from '../../context/FavoritesContext';
+import type { RootState } from '../../store/store';
 import './MoviePage.css';
 
 export const MoviePage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const { isAuth } = useSelector((state: RootState) => state.auth || { isAuth: false });
   const { data: movie, isLoading, isError } = useGetMovieDetailsQuery(id || '');
-
   const { isFavorite, toggleFavorite } = useFavorites();
   const favoriteStatus = id ? isFavorite(id) : false;
 
   const handleToggleFavorite = () => {
+    if (!isAuth) {
+      navigate('/login', {
+        state: { message: "Войдите или зарегистрируйтесь, чтобы добавлять фильмы в избранное!" }
+      });
+      return;
+    }
+
     if (movie && id) {
       toggleFavorite({
         id: String(id),
