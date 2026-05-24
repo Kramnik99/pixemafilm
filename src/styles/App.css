@@ -24,10 +24,10 @@
 }
 
 .header__logo {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 800;
   color: #7b61ff;
-  letter-spacing: 1px;
+  letter-spacing: 3px;
   cursor: pointer;
   text-decoration: none;
 }
@@ -107,7 +107,7 @@
 
 .main-content {
   flex: 1;
-  padding: 30px 40px;
+  padding: 80px 40px;
   max-width: 1400px;
   width: 100%;
   margin: 0 auto;
@@ -116,7 +116,7 @@
 .footer {
   padding: 30px;
   text-align: center;
-  color: #80858b;
+  color: #c8d0d9;
   font-size: 14px;
   border-top: 1px solid #1a1a1a;
 }
