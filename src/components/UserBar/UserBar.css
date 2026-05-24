@@ -8,15 +8,15 @@
 }
 
 .user-avatar {
-  width: 35px;
-  height: 35px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background-color: #7b61ff;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 .user-info {
@@ -27,6 +27,7 @@
 
 .user-name {
   font-size: 14px;
+    padding: 0 5px 0 10px;
 }
 
 .arrow {
