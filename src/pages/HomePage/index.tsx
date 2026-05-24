@@ -24,9 +24,9 @@ export const HomePage: React.FC = () => {
   });
 
   const handleFilterChange = (newFilters: IFilters) => {
-  setFilters(newFilters);
-  setPage(1);
-};
+    setFilters(newFilters);
+    setPage(1);
+  };
 
   const handleReset = () => {
     setFilters(initialFilters);

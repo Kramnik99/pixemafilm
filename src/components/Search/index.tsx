@@ -19,7 +19,7 @@ export const Search: React.FC = () => {
             <input
                 type="text"
                 className="search-input"
-                placeholder="Поиск фильма..."
+                placeholder="Искать фильм..."
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
             />
